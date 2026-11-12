@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "ForEachSqlTablw",
+				"name": "ForEachSqlTable",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -47,7 +47,7 @@
 					},
 					"activities": [
 						{
-							"name": "Execute Pipeline1",
+							"name": "Execute Pipeline 1",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"policy": {
