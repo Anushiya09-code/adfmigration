@@ -7,11 +7,11 @@
 		"typeProperties": {
 			"server": "ANUSHIYA\\SQLEXPRESS",
 			"database": "Sqlmigration",
-			"encrypt": "mandatory",
+			"encrypt": "optional",
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
 			"userName": "Anu",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0OWQyM2QyMC1lNTQwLTRlMWYtODIwYi0zNjZkZTEyOGE4NGEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxZDliNDcwMC02MTMzLTQ3M2MtODc3YS00OTc4M2U1MTYwZjciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
