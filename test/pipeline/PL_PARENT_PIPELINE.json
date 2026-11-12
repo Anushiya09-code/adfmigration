@@ -27,6 +27,25 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ForEachSqlTablw",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "LKUP_SQLTABLE_WATERMARK_DW",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('LKUP_SQLTABLE_WATRMRK_DW').output.value",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
