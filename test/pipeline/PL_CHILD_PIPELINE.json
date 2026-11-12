@@ -28,6 +28,10 @@
 							"schemaname": {
 								"value": "@pipeline().parameters.TableSchema",
 								"type": "Expression"
+							},
+							"tablename": {
+								"value": "@pipeline().parameters.TableName",
+								"type": "Expression"
 							}
 						}
 					},
@@ -53,7 +57,7 @@
 					},
 					"ifTrueActivities": [
 						{
-							"name": "Copy data1",
+							"name": "COPY_SQL_FULL_INCTABLE_LOADS",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -65,8 +69,30 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"sqlReaderQuery": "@concat(\n    'SELECT * FROM ',\n    pipeline().parameters.TableSchema, '.', pipeline().parameters.TableName,\n    if(\n        equals(pipeline().parameters.LastLoadValue, null),\n        '', \n        concat(\n            ' WHERE ', pipeline().parameters.WatermarkColumn,\n            ' > ''', pipeline().parameters.LastLoadValue, ''''\n        )\n    )\n)\n",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
 								"enableStaging": false
-							}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Parent_to_adls",
+									"type": "DatasetReference",
+									"parameters": {
+										"schemaname": {
+											"value": "@pipeline().parameters.TableSchema",
+											"type": "Expression"
+										},
+										"tablename": {
+											"value": "@pipeline().parameters.TableName",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
 					]
 				}
